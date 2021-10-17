@@ -1,0 +1,42 @@
+[
+    {
+
+      "name": "Mahmoud Alzoubi",
+      "dateOfBarth": "3/3/2000",
+      "nationality": "Jordainian",
+      "GPA1": "89",
+      "GPA2": "91"
+      
+    },
+    {
+  
+      "name": "Khalid",
+      "dateOfBarth": "20/5/2001",
+      "nationality": "Jordainian",
+      "GPA1": "95",
+      "GPA2":"94"
+    },
+    {
+    
+      "name": "Tariq",
+      "dateOfBarth": "10/2/2005",
+      "nationality": "Jordainian",
+      "GPA1": "75",
+      "GPA2":"80"
+
+    },
+    {
+      "name": "Mohammad",
+      "dateOfBarth": "6/3/2004",
+      "nationality": "Jordainian",
+      "GPA1": "85",
+      "GPA2":"83"
+    },
+    {
+      "name": "Ali",
+      "dateOfBarth": "6/9/2005",
+      "nationality": "Jordainian",
+      "GPA1": "90",
+      "GPA2":"93"
+    }
+  ]
