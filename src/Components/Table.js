@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React ,{useState, setState} from "react";
 import "./Table.css"
 import data from "./mockdata.json"
 
@@ -41,10 +41,14 @@ const handleAddFormChange = (event) => {
         const newContacts = [...contacts,newValue]
         setContacts(newContacts);
       }
-      
+
+      const [show,setShow]=useState(false)
+
     return(
         <div className="Tablecontainer"> 
             {/* <h> Add New Student</h> */}
+            <button onClick={()=>setShow(!show)}>Add new student</button>
+            {show?
             <form onSubmit={handleFormSubmit}>
                 <input type="text" name="name" required="required" placeholder="First and last name" onChange={handleAddFormChange}/>
                 <input type="text" name="dateOfBarth" required="required" placeholder="day/month/year" onChange={handleAddFormChange}/>
@@ -52,8 +56,9 @@ const handleAddFormChange = (event) => {
                 <input type="number" name="GPA1" required="required" placeholder="GPA last year" onChange={handleAddFormChange}/>
                 <input type="number" name="GPA2" required="required" placeholder="GPA this year" onChange={handleAddFormChange}/>
                 <button type="submit">Submit Adding</button>
-            </form>
+            </form>:null}
             <TableOfData studentdata={contacts} datachange={handleFormSubmit} />
+            <Report studentdata={contacts} datachange={handleFormSubmit}/>
         </div>
     )
 }
@@ -110,5 +115,40 @@ const TableOfData =({datachange,studentdata})=>{
 }
 
 
+const Report = ({datachange,studentdata})=>{
+    // console.log(studentdata)
+   let sum1=0
+   let sum2=0
+   let avg1=0
+   let avg2=0
+   let numStudent=0
+   let jordainian=0
+   let other=0
+   const [show,setShow]=useState(false)
+    return(
+        <div>
+            {studentdata.map((value , c)=>{
+                sum1=sum1+parseInt(value.GPA1)
+                sum2=sum2+parseInt(value.GPA2)
+                console.log(sum1,sum2)
+                numStudent=c+1
+                avg1=sum1/numStudent
+                avg2=sum2/numStudent
+                if(value.nationality.toLowerCase() == "jordainian"){
+                    jordainian=jordainian+1
+                }else{other=other+1}
+            })}
+            <button onClick={()=>setShow(!show)}>Summery</button>
+          {show ? <div> 
+                <h3>Report of the records:</h3>
+                <p>Student Number is: {numStudent}</p>
+                <p>The average of GPA last year is: {avg1}</p>
+                <p>The average of GPA this year is: {avg2}</p>
+                <p>Jordainian nationality students: {jordainian}</p>
+                <p>Other nationality students: {other}</p>
+            </div>:null}
+    </div>
+    )
+}
 
 export default Table
