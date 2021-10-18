@@ -27,23 +27,24 @@ const handleAddFormChange = (event) => {
         setaddFormdata(newFormData);
       };
 
-      const handleFormSubmit = (event) =>{
-          event.preventDefault();
+    const handleFormSubmit = (event) =>{
+        event.preventDefault();
 
-          const newValue={
-            name:addFormdata.name,
-            dateOfBarth:addFormdata.dateOfBarth,
-            nationality:addFormdata.nationality,
-            GPA1:addFormdata.GPA1,
-            GPA2:addFormdata.GPA2,
-          }
+        const newValue={
+        name:addFormdata.name,
+        dateOfBarth:addFormdata.dateOfBarth,
+        nationality:addFormdata.nationality,
+        GPA1:addFormdata.GPA1,
+        GPA2:addFormdata.GPA2,
+        }
 
-          const newContacts = [...contacts,newValue]
-          setContacts(newContacts);
+        const newContacts = [...contacts,newValue]
+        setContacts(newContacts);
       }
+      
     return(
         <div className="Tablecontainer"> 
-            <h> Add New Student</h>
+            {/* <h> Add New Student</h> */}
             <form onSubmit={handleFormSubmit}>
                 <input type="text" name="name" required="required" placeholder="First and last name" onChange={handleAddFormChange}/>
                 <input type="text" name="dateOfBarth" required="required" placeholder="day/month/year" onChange={handleAddFormChange}/>
@@ -52,8 +53,20 @@ const handleAddFormChange = (event) => {
                 <input type="number" name="GPA2" required="required" placeholder="GPA this year" onChange={handleAddFormChange}/>
                 <button type="submit">Submit Adding</button>
             </form>
+            <TableOfData studentdata={contacts} datachange={handleFormSubmit} />
+        </div>
+    )
+}
 
-            <table>
+
+const TableOfData =({datachange,studentdata})=>{
+    // console.log(studentdata)
+    const[searchValue, setsearchValue]=useState("");
+    
+    return(
+        <div>
+        <input type="text" placeholder="search by name" onChange={(event=>{setsearchValue(event.target.value)})}/>
+        {/* {console.log(searchValue)} */}
         <thead>
             <tr>
                 <th>Name</th>
@@ -63,22 +76,38 @@ const handleAddFormChange = (event) => {
                 <th>GPA this year</th>
             </tr>
         </thead>
-        <tbody>
-            {contacts.map((contact)=>
-            <tr>
-                <th>{contact.name}</th>
-                <th>{contact.dateOfBarth}</th>
-                <th>{contact.nationality}</th>
-                <th>{contact.GPA1}</th>
-                <th>{contact.GPA2}</th>
-            </tr>
-            )}
-        </tbody>
-    </table>
-        </div>
+        {
+            
+            studentdata.filter((contact)=>{
+                if(searchValue==""){
+                    // console.log(studentdata)
+                    return contact
+                }else if(contact.name.toLowerCase().includes(searchValue.toLowerCase())){
+                    return contact
+                }
+            }).map((contact)=>{
+                return(
+                    <table>
+
+                        <tbody>
+                            {/* {studentdata.map((contact)=> */}
+                            <tr>
+                                <th onChange={datachange}>{contact.name}</th>
+                                <th onChange={datachange}>{contact.dateOfBarth}</th>
+                                <th onChange={datachange}>{contact.nationality}</th>
+                                <th onChange={datachange}>{contact.GPA1}</th>
+                                <th onChange={datachange}>{contact.GPA2}</th>
+                            </tr>
+                            {/* )} */}
+                        </tbody>
+                    </table>
+                );
+            })
+        }
+        
+    </div>
     )
 }
-
 
 
 
