@@ -1,12 +1,11 @@
 import './App.css';
 import Header from './Components/Header'
-import Table from './Components/Table';
-import Form from './Components/Form';
+import Form from './Components/Table';
 function App() {
   return (
     <div className="App">
       <Header/>
-      <Table/>
+      <Form/>
     </div>
   );
 }
