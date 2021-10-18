@@ -1,9 +1,10 @@
 import React ,{useState, setState} from "react";
 import "./Table.css"
+//use mock data to make more readable and clear
 import data from "./mockdata.json"
 
-
-const Table = () =>{
+// the Main component that contain a form and pass the data that come to other component
+const Form = () =>{
 
     const [contacts,setContacts]=useState(data)
     const [addFormdata,setaddFormdata]=useState({
@@ -14,7 +15,7 @@ const Table = () =>{
         GPA2:'',
     })
 
-
+// this event function to fetch the data from the input feilds then sign it to state 
 const handleAddFormChange = (event) => {
         event.preventDefault();
     
@@ -63,7 +64,7 @@ const handleAddFormChange = (event) => {
     )
 }
 
-
+// this component for represent the data in table also this component has a search field with search functionality
 const TableOfData =({datachange,studentdata})=>{
     // console.log(studentdata)
     const[searchValue, setsearchValue]=useState("");
@@ -82,7 +83,7 @@ const TableOfData =({datachange,studentdata})=>{
             </tr>
         </thead>
         {
-            
+            // search functionality 
             studentdata.filter((contact)=>{
                 if(searchValue==""){
                     // console.log(studentdata)
@@ -95,7 +96,6 @@ const TableOfData =({datachange,studentdata})=>{
                     <table>
 
                         <tbody>
-                            {/* {studentdata.map((contact)=> */}
                             <tr>
                                 <th onChange={datachange}>{contact.name}</th>
                                 <th onChange={datachange}>{contact.dateOfBarth}</th>
@@ -103,7 +103,6 @@ const TableOfData =({datachange,studentdata})=>{
                                 <th onChange={datachange}>{contact.GPA1}</th>
                                 <th onChange={datachange}>{contact.GPA2}</th>
                             </tr>
-                            {/* )} */}
                         </tbody>
                     </table>
                 );
@@ -114,7 +113,7 @@ const TableOfData =({datachange,studentdata})=>{
     )
 }
 
-
+// this component to represent statistic in report using some calculation and statistic
 const Report = ({datachange,studentdata})=>{
     // console.log(studentdata)
    let sum1=0
@@ -151,4 +150,4 @@ const Report = ({datachange,studentdata})=>{
     )
 }
 
-export default Table
+export default Form
