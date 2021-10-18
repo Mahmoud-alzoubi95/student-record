@@ -48,18 +48,21 @@ const handleAddFormChange = (event) => {
     return(
         <div className="Tablecontainer"> 
             {/* <h> Add New Student</h> */}
-            <button onClick={()=>setShow(!show)}>Add new student</button>
+            <button onClick={()=>setShow(!show)}>Add</button>
             {show?
+            <div className="FormComponent">
             <form onSubmit={handleFormSubmit}>
                 <input type="text" name="name" required="required" placeholder="First and last name" onChange={handleAddFormChange}/>
                 <input type="text" name="dateOfBarth" required="required" placeholder="day/month/year" onChange={handleAddFormChange}/>
                 <input type="text" name="nationality" required="required" placeholder="Nationality" onChange={handleAddFormChange}/>
                 <input type="number" name="GPA1" required="required" placeholder="GPA last year" onChange={handleAddFormChange}/>
                 <input type="number" name="GPA2" required="required" placeholder="GPA this year" onChange={handleAddFormChange}/>
-                <button type="submit">Submit Adding</button>
-            </form>:null}
-            <TableOfData studentdata={contacts} datachange={handleFormSubmit} />
-            <Report studentdata={contacts} datachange={handleFormSubmit}/>
+                <button type="submit">Submit</button>
+            </form></div>:null}
+            <div className="tableSearch">
+                <TableOfData studentdata={contacts} datachange={handleFormSubmit} />
+                <Report studentdata={contacts} datachange={handleFormSubmit}/>
+            </div>
         </div>
     )
 }

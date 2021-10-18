@@ -1,0 +1,17 @@
+.HeaderContainer {
+    width: 100%;
+    height: 4.5rem;
+    display: flex;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    font-family: cursive;
+    font-size: 20px;
+    color: #20718f;
+
+
+}
+.Headerimg{
+    width: 70px;
+    height: 70px;
+    margin-left: 15px;
+
+}
