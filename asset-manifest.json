@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/student-record/static/css/main.ba8cd63a.chunk.css",
+    "main.js": "/student-record/static/js/main.dfd6afb2.chunk.js",
+    "main.js.map": "/student-record/static/js/main.dfd6afb2.chunk.js.map",
+    "runtime-main.js": "/student-record/static/js/runtime-main.4713a6b8.js",
+    "runtime-main.js.map": "/student-record/static/js/runtime-main.4713a6b8.js.map",
+    "static/js/2.806ffc71.chunk.js": "/student-record/static/js/2.806ffc71.chunk.js",
+    "static/js/2.806ffc71.chunk.js.map": "/student-record/static/js/2.806ffc71.chunk.js.map",
+    "static/js/3.15bb6293.chunk.js": "/student-record/static/js/3.15bb6293.chunk.js",
+    "static/js/3.15bb6293.chunk.js.map": "/student-record/static/js/3.15bb6293.chunk.js.map",
+    "index.html": "/student-record/index.html",
+    "static/css/main.ba8cd63a.chunk.css.map": "/student-record/static/css/main.ba8cd63a.chunk.css.map",
+    "static/js/2.806ffc71.chunk.js.LICENSE.txt": "/student-record/static/js/2.806ffc71.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4713a6b8.js",
+    "static/js/2.806ffc71.chunk.js",
+    "static/css/main.ba8cd63a.chunk.css",
+    "static/js/main.dfd6afb2.chunk.js"
+  ]
+}
